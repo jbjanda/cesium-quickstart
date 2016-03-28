@@ -1,0 +1,6 @@
+{
+  "template": "nodejs",
+  "ports": [3000, 5000, 8080],
+  "name": "CSI Cesium JS Development Template",
+  "description": "A platform for the basic development of the Cesium JS platform"
+}
