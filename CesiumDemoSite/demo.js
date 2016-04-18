@@ -1,13 +1,11 @@
-document.getElementById("startDemo").addEventListener("click", displayDate);
+document.getElementById("startDemo").addEventListener("click", startViewer);
 
-function displayDate() {
-    document.getElementById("hello").innerHTML = Date();
-}
 
+function startViewer(){
 var czml = [
   {
     "id" : "document",
-    "name" : "Start Point",
+    "name" : "CZML Point",
     "version" : "1.0"
   },
   {
@@ -30,11 +28,13 @@ var czml = [
   }
 ];
 
-function loadCZML(czml){
-    var dataSource = Cesium.CzmlDataSource.load(czml);
-  viewer.dataSources.add(dataSource);
-  viewer.zoomTo(dataSource);
-}
+
+var viewer = new Cesium.Viewer('cesiumContainer');
+var dataSource = Cesium.CzmlDataSource.load(czml);
+viewer.dataSources.add(dataSource);
+viewer.zoomTo(dataSource);
+  document.getElementById("cesiumContainer")= viewer;
+  }
 
 
 
