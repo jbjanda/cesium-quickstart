@@ -8,11 +8,23 @@
   <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <title>Object Float Demo</title>
-  <script src="../Build/Cesium/Cesium.js"></script>
+  <script src="/Build/Cesium/Cesium.js"></script>
+  <!--<script src="/CesiumDemoSite/demo.js"></script>-->
+
+  <!-- This is custom styling added to the page
+       TODO: Add this into a separate stylesheet from source-->
   <style>
       @import url(../Build/Cesium/Widgets/widgets.css);
       html, body, #cesiumContainer {
           width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      }
+    #overlay {
+    display: block;
+		color : #FFFFFF;
+		top : 250px;
+		left : 300px;
+        position :static;
+		z-index : 1;
       }
   </style>
 
@@ -37,69 +49,77 @@
 
 
 
-			<div>
-
-			  <blockquote>
-			    <p class="text-info">
-This is a demo of a Clear Science Inc. project designed to model an object's float predictions based on data predictions using the Cesium viewer. This uses only controlled data to show what future functionality of this application will be able to do. As this project develops, increased functionality will be added to this demonstration.
-			    </p>
-			  </blockquote>
-			</div>
-
+      <div class = "text-info">
+        <blockquote>
+            This is a demo of a Clear Science Inc. project designed to visually display an object's predicted float path based on data modeling algorithms using the Cesium viewer.
+            This uses only controlled data to show what future functionality of this application will be able to do. As this project develops, more data will be made available for
+            the user. This application is being developed as part of an internshp project by Jeff Janda and Veronica Washington.
+        </blockquote>
+      </div>
 
 
 
 
 
-		  <button type="button" id="startDemo" class="btn btn-primary">Start Demo</button>
+
+      <div id="overlay"><button type="button" id="startDemo" class="btn btn-primary">Start Demo</button></div>
 		  <div id="cesiumContainer"></div>
-		  <script>
-			document.getElementById("startDemo").addEventListener("click", startViewer);
 
 
-function startViewer(){
-var czml = [
-  {
-    "id" : "document",
-    "name" : "CZML Point",
-    "version" : "1.0"
-  },
-  {
-    "id" : "point 1",
-    "name": "point",
-    "position" : {
-      "cartographicDegrees" : [-79.6509,	30.3729, 0]
-    },
-    "point": {
-      "color": {
-        "rgba": [255,0, 200, 255]
-      },
-      "outlineColor": {
-        "rgba": [255,0, 200, 255]
-      },
-      "pixelSize": {
-        "number": 10
-      }
-    }
-  }
-];
-
-
-var viewer = new Cesium.Viewer('cesiumContainer');
-var dataSource = Cesium.CzmlDataSource.load(czml);
-viewer.dataSources.add(dataSource);
-viewer.zoomTo(dataSource);
-  document.getElementById("cesiumContainer")= viewer;
-  }
-		  </script>
 
 	</div>
   <br>
   <br>
   <br>
+
+    <!-- This is the main script to run the Cesium viewer and load initial CZML
+        TODO: place this in separate script file and reference-->
+  <script>
+   var viewer=Cesium.Viewer('cesiumContainer');
+
+
+document.getElementById("startDemo").addEventListener("click", startViewer);
+
+
+
+function startViewer(){
+  var czml = [
+    {
+      "id" : "document",
+      "name" : "CZML Point",
+      "version" : "1.0"
+    },
+    {
+      "id" : "point 1",
+      "name": "point",
+      "position" : {
+        "cartographicDegrees" : [-79.6509,	30.3729, 0]
+      },
+      "point": {
+        "color": {
+          "rgba": [255,0, 0, 255]
+        },
+        "outlineColor": {
+          "rgba": [255,0, 200, 255]
+        },
+        "pixelSize": {
+          "number": 10
+        }
+      }
+    }
+  ];
+
+
+
+  var dataSource = Cesium.CzmlDataSource.load(czml);
+  viewer.dataSources.add(dataSource);
+  viewer.zoomTo(dataSource);
+  document.getElementById("cesiumContainer")=viewer;
+}
+	</script>
+
+
 </body>
-  <footer>
-    <div>copyright info here</div>
-    </footer>
+
 </html>
 
