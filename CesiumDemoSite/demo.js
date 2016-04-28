@@ -15,6 +15,7 @@ var czml = [
                 {
                   "id" : "point 1",
                   "name": "point 1",
+                  "availability": "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
                   "description" :"<p>CONDITIONS AT MAP CENTER 35-34.0N 073-46.0N VALID ON 2412900Z NOV2015</P>" +
       "<TABLE style=\"font-size:7pt\">" +
 
