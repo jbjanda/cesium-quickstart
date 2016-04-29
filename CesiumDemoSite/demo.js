@@ -12,10 +12,60 @@ var czml = [
                   "name" : "CZML Point",
                   "version" : "1.0"
                 },
+  {
+    "id" : "path",
+    "name" : "path with GPS flight data",
+
+    "availability" : "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
+    "path" : {
+      "material" : {
+        "solidColor" : {
+          "color" : {
+            "rgba" : [255, 255, 255, 255]
+          },
+
+        }
+      },
+      "width" : 1,
+      "leadTime" : 10,
+      "trailTime" : 82800,
+      "resolution" : 5
+    },
+
+    "position" : {
+      "epoch" : "2016-04-20T00:00:00Z",
+      "cartographicDegrees" : [
+        0,-79.6509,30.3729,0,
+3600,-79.60867185,30.4871365,0,
+7200,-79.55759526,30.59606461,0,
+10800,-79.49869911,30.6998218,0,
+14400,-79.43386428,30.79634123,0,
+18000,-79.36412024,30.88418625,0,
+21600,-79.29093208,30.96412595,0,
+25200,-79.21273013,31.03810863,0,
+28800,-79.12979165,31.10808336,0,
+32400,-79.04302747,31.17406482,0,
+36000,-78.95261838,31.23574241,0,
+39600,-78.8575486,31.2935129,0,
+43200,-78.7610983,31.34533333,0,
+46800,-78.66659308,31.38997543,0,
+50400,-78.57519658,31.42724211,0,
+54000,-78.48670209,31.46012378,0,
+57600,-78.40330455,31.48986536,0,
+61200,-78.32578206,31.51768292,0,
+64800,-78.25219855,31.54599326,0,
+68400,-78.17999362,31.57512073,0,
+72000,-78.10745289,31.6044718,0,
+75600,-78.0335967,31.63328579,0,
+79200,-77.95861544,31.66156867,0,
+82800,-77.88363803,31.69149173,0
+      ]
+    }
+  },
                 {
                   "id" : "point 1",
                   "name": "point 1",
-                  "availability": "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
+                  //"availability": "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
                   "description" :"<p>CONDITIONS AT MAP CENTER 35-34.0N 073-46.0N VALID ON 2412900Z NOV2015</P>" +
       "<TABLE style=\"font-size:7pt\">" +
 
@@ -104,13 +154,14 @@ var czml = [
                       "rgba": [255,0, 200, 255]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
                   {
                   "id" : "point 2",
                   "name": "point 2",
+                     //"availability": "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
                     "description" :"<p>CONDITIONS AT MAP CENTER 35-34.0N 073-46.0N VALID ON 2412900Z NOV2015</P>" +
       "<TABLE style=\"font-size:7pt\">" +
 
@@ -206,7 +257,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -309,7 +360,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize":{
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -411,7 +462,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -513,7 +564,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -615,7 +666,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -717,7 +768,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -819,7 +870,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -921,7 +972,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1023,7 +1074,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1125,7 +1176,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1227,7 +1278,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1329,7 +1380,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1431,7 +1482,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1533,7 +1584,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1635,7 +1686,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1737,7 +1788,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1839,7 +1890,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -1941,7 +1992,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -2043,7 +2094,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -2145,7 +2196,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -2247,7 +2298,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
@@ -2349,13 +2400,14 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 },
 					 {
                   "id" : "point 24",
                   "name": "Point 24",
+              "availability": "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
                   "description" :"<p>CONDITIONS AT MAP CENTER 35-34.0N 073-46.0N VALID ON 2412900Z NOV2015</P>" +
       "<TABLE style=\"font-size:7pt\">" +
 
@@ -2448,7 +2500,7 @@ var czml = [
                       "rgba": [0,0, 255, 150]
                     },
                     "pixelSize": {
-                      "number": 10
+                      "number": 15
                     }
                   }
                 }
