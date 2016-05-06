@@ -1,10 +1,70 @@
 $(document).ready(function(){
       var viewer;
       var button = $('#startDemo');
+      var lat = $('#lat');
+      var lon = $('#lon');
 
+
+      viewer = new Cesium.Viewer('cesiumContainer');
       button.on('click', init);
+      var scene = viewer.scene;
 
-  // This is the formatted websar data. All data is hardcoded in at this time
+
+
+    var entity = viewer.entities.add({
+        label : {
+            show : false
+        }
+    });
+
+  // Event handler code for displaying the cartographic degrees and selecting them.
+    var cartesian;
+    var cartographic;
+    var longitudeString;
+    var latitudeString;
+    var demoStarted=false;
+    // Mouse over the globe to see the cartographic position
+    handlerMove = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+    handlerMove.setInputAction(function(movement) {
+        cartesian = viewer.camera.pickEllipsoid(movement.endPosition, scene.globe.ellipsoid);
+        if (cartesian && !demoStarted) {
+            cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+            longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
+            latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
+
+            entity.position = cartesian;
+            entity.label.show = true;
+            entity.label.text = '(' + longitudeString + ', ' + latitudeString + ')';
+
+        } else {
+            entity.label.show = false;
+        }
+
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+
+
+   viewer.canvas.addEventListener('click', function(e){
+      if (cartesian) {
+
+        console.log(longitudeString + ', ' + latitudeString);
+        //---> insert wire up code here for lat and long form controls
+         lat.empty();
+         lon.empty();
+         lat.append("<p>"+latitudeString+"</p>");
+         lon.append("<p>"+longitudeString+"</p>");
+      } else {
+
+        console.log('Globe was not picked');
+
+      }
+
+    }, false);
+
+
+//end of events code
+
+
+  // This is the formatted websar data. All data is hardcoded in at this time. Used in description for CZML
       var websar = "<p>CONDITIONS AT MAP CENTER 35-34.0N 073-46.0N VALID ON 2412900Z NOV2015</P>" +
       "<TABLE style=\"font-size:7pt\">" +
 
@@ -84,63 +144,63 @@ $(document).ready(function(){
       //Function Start
       function init(){
         console.log('Here')
-        viewer = new Cesium.Viewer('cesiumContainer');
-var czml = [
+       // viewer = new Cesium.Viewer('cesiumContainer');
+              var czml = [
                 {
                   "id" : "document",
                   "name" : "CZML Point",
                   "version" : "1.0"
                 },
-  {
-    "id" : "path",
-    "name" : "Object Float Path",
+                {
+                  "id" : "path",
+                  "name" : "Object Float Path",
 
-    "availability" : "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
-    "path" : {
-      "material" : {
-        "solidColor" : {
-          "color" : {
-            "rgba" : [255, 255, 255, 255]
-          },
+                  "availability" : "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
+                  "path" : {
+                    "material" : {
+                      "solidColor" : {
+                        "color" : {
+                          "rgba" : [255, 255, 255, 255]
+                        },
 
-        }
-      },
-      "width" : 1,
-      "leadTime" : 10,
-      "trailTime" : 82800,
-      "resolution" : 5
-    },
+                      }
+                    },
+                    "width" : 1,
+                    "leadTime" : 10,
+                    "trailTime" : 82800,
+                    "resolution" : 5
+                  },
 
-    "position" : {
-      "epoch" : "2016-04-20T00:00:00Z",
-      "cartographicDegrees" : [
-        0,-79.6509,30.3729,-1,
-3600,-79.60867185,30.4871365,-1,
-7200,-79.55759526,30.59606461,-1,
-10800,-79.49869911,30.6998218,-1,
-14400,-79.43386428,30.79634123,-1,
-18000,-79.36412024,30.88418625,-1,
-21600,-79.29093208,30.96412595,-1,
-25200,-79.21273013,31.03810863,-1,
-28800,-79.12979165,31.10808336,-1,
-32400,-79.04302747,31.17406482,-1,
-36000,-78.95261838,31.23574241,-1,
-39600,-78.8575486,31.2935129,-1,
-43200,-78.7610983,31.34533333,-1,
-46800,-78.66659308,31.38997543,-1,
-50400,-78.57519658,31.42724211,-1,
-54000,-78.48670209,31.46012378,-1,
-57600,-78.40330455,31.48986536,-1,
-61200,-78.32578206,31.51768292,-1,
-64800,-78.25219855,31.54599326,-1,
-68400,-78.17999362,31.57512073,-1,
-72000,-78.10745289,31.6044718,-1,
-75600,-78.0335967,31.63328579,-1,
-79200,-77.95861544,31.66156867,-1,
-82800,-77.88363803,31.69149173,-1
-      ]
-    }
-  },
+                  "position" : {
+                    "epoch" : "2016-04-20T00:00:00Z",
+                    "cartographicDegrees" : [
+                      0,-79.6509,30.3729,-1,
+              3600,-79.60867185,30.4871365,-1,
+              7200,-79.55759526,30.59606461,-1,
+              10800,-79.49869911,30.6998218,-1,
+              14400,-79.43386428,30.79634123,-1,
+              18000,-79.36412024,30.88418625,-1,
+              21600,-79.29093208,30.96412595,-1,
+              25200,-79.21273013,31.03810863,-1,
+              28800,-79.12979165,31.10808336,-1,
+              32400,-79.04302747,31.17406482,-1,
+              36000,-78.95261838,31.23574241,-1,
+              39600,-78.8575486,31.2935129,-1,
+              43200,-78.7610983,31.34533333,-1,
+              46800,-78.66659308,31.38997543,-1,
+              50400,-78.57519658,31.42724211,-1,
+              54000,-78.48670209,31.46012378,-1,
+              57600,-78.40330455,31.48986536,-1,
+              61200,-78.32578206,31.51768292,-1,
+              64800,-78.25219855,31.54599326,-1,
+              68400,-78.17999362,31.57512073,-1,
+              72000,-78.10745289,31.6044718,-1,
+              75600,-78.0335967,31.63328579,-1,
+              79200,-77.95861544,31.66156867,-1,
+              82800,-77.88363803,31.69149173,-1
+                    ]
+                  }
+                },
                 {
                   "id" : "point 1",
                   "name": "2016-04-20T00:00:00Z",
@@ -221,7 +281,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 4",
                   "name": "2016-04-20T03:00:00Z",
                   "description" :websar,
@@ -277,7 +337,7 @@ var czml = [
                     }
                   }
                 },
-				{
+				        {
                   "id" : "point 6",
                   "name": "2016-04-20T05:00:00Z",
                   "description" :websar,
@@ -305,7 +365,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 7",
                   "name": "2016-04-20T06:00:00Z",
                   "description" :websar,
@@ -333,7 +393,7 @@ var czml = [
                     }
                   }
                 },
-						{
+						    {
                   "id" : "point 8",
                   "name": "2016-04-20T07:00:00Z",
                   "description" :websar,
@@ -361,7 +421,7 @@ var czml = [
                     }
                   }
                 },
-						{
+						    {
                   "id" : "point 9",
                   "name": "2016-04-20T08:00:00Z",
                   "description" :websar,
@@ -389,7 +449,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 10",
                   "name": "2016-04-20T09:00:00Z",
                   "description" :websar,
@@ -417,7 +477,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 11",
                   "name": "2016-04-20T10:00:00Z",
                   "description" :websar,
@@ -445,7 +505,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 12",
                   "name": "2016-04-20T11:00:00Z",
                   "description" :websar,
@@ -473,7 +533,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 13",
                   "name": "2016-04-20T12:00:00Z",
                   "description" :websar,
@@ -501,7 +561,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 14",
                   "name": "2016-04-20T13:00:00Z",
                   "description" :websar,
@@ -529,7 +589,7 @@ var czml = [
                     }
                   }
                 },
-						{
+						    {
                   "id" : "point 15",
                   "name": "2016-04-20T14:00:00Z",
                   "description" :websar,
@@ -557,7 +617,7 @@ var czml = [
                     }
                   }
                 },
-						{
+						    {
                   "id" : "point 16",
                   "name": "2016-04-20T15:00:00Z",
                   "description" :websar,
@@ -585,7 +645,7 @@ var czml = [
                     }
                   }
                 },
-						{
+						    {
                   "id" : "point 17",
                   "name": "2016-04-20T16:00:00Z",
                   "description" :websar,
@@ -613,7 +673,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 18",
                   "name": "2016-04-20T17:00:00Z",
                   "description" :websar,
@@ -641,7 +701,7 @@ var czml = [
                     }
                   }
                 },
-					 {
+					      {
                   "id" : "point 19",
                   "name": "Lon: -78.25219855 Lat: 31.54599326 -- 2016-04-20T18:00:00Z",
                   "description" :websar,
@@ -669,7 +729,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 20",
                   "name": "2016-04-20T19:00:00Z",
                   "description" :websar,
@@ -697,7 +757,7 @@ var czml = [
                     }
                   }
                 },
-					  {
+					      {
                   "id" : "point 21",
                   "name": "2016-04-20T20:00:00Z",
                   "description" :websar,
@@ -725,7 +785,7 @@ var czml = [
                     }
                   }
                 },
-					 {
+					      {
                   "id" : "point 22",
                   "name": "2016-04-20T21:00:00Z",
                   "description" :websar,
@@ -753,7 +813,7 @@ var czml = [
                     }
                   }
                 },
-					{
+					      {
                   "id" : "point 23",
                   "name": "2016-04-20T22:00:00Z",
                   "description" :websar,
@@ -781,7 +841,7 @@ var czml = [
                     }
                   }
                 },
-					 {
+                {
                   "id" : "point 24",
                   "name": "2016-04-20T00:00:00Z",
               "availability": "2016-04-20T00:00:00Z/2016-04-21T00:00:00Z",
@@ -807,14 +867,15 @@ var czml = [
                     }
                   }
                 }
+                ]; // end czml
 
-          ];
         var dataSource = Cesium.CzmlDataSource.load(czml);
         viewer.dataSources.add(dataSource);
-      var frame= new Cesium.HeadingPitchRange(0.05,-.30, 200500);
+        var frame= new Cesium.HeadingPitchRange(0.05,-.30, 200500);
+        demoStarted=true; // This removes the cartographic degree label from the viewer when the demo starts.
         viewer.zoomTo(dataSource, frame);
       }
 
 
-})
+});
 
