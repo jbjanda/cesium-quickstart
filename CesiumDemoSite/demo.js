@@ -22,7 +22,7 @@ $(document).ready(function(){
     var cartographic;
     var longitudeString;
     var latitudeString;
-    var demoStarted=false;
+    var demoStarted=false; // checks if the demo is started
     // Mouse over the globe to see the cartographic position
     handlerMove = new Cesium.ScreenSpaceEventHandler(scene.canvas);
     handlerMove.setInputAction(function(movement) {
@@ -42,16 +42,20 @@ $(document).ready(function(){
 
     }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
 
-
-   viewer.canvas.addEventListener('click', function(e){
-      if (cartesian) {
+   // click globe to select values
+   viewer.canvas.addEventListener('click', function(){
+      if (cartesian && !demoStarted) {
 
         console.log(longitudeString + ', ' + latitudeString);
-        //---> insert wire up code here for lat and long form controls
+
+        // below code is for demo purposes only. Need to wire up form to this event
          lat.empty();
          lon.empty();
          lat.append("<p>"+latitudeString+"</p>");
          lon.append("<p>"+longitudeString+"</p>");
+
+        //---> insert wire up code here for lat and long form controls
+
       } else {
 
         console.log('Globe was not picked');
@@ -61,7 +65,7 @@ $(document).ready(function(){
     }, false);
 
 
-//end of events code
+//<------------------------end of events code ------------------------->
 
 
   // This is the formatted websar data. All data is hardcoded in at this time. Used in description for CZML
