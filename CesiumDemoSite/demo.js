@@ -72,78 +72,78 @@ $(document).ready(function(){
       var websar = "<p>CONDITIONS AT MAP CENTER 35-34.0N 073-46.0N VALID ON 2412900Z NOV2015</P>" +
       "<TABLE style=\"font-size:7pt\">" +
 
-"<TR><TD>WIND SPEED</TD><TD></TD><TD></TD><TD style=\"text-align:right\">020</TD>" +
-"<TD></TD><TD>KNOTS</TD><TD></TD><TD></TD><TD></TD><TD>(NAVGEM)</TD></TR>" +
+      "<TR><TD>WIND SPEED</TD><TD></TD><TD></TD><TD style=\"text-align:right\">020</TD>" +
+      "<TD></TD><TD>KNOTS</TD><TD></TD><TD></TD><TD></TD><TD>(NAVGEM)</TD></TR>" +
 
-"<TR><TD>WIND DIRECTION (FROM)</TD><TD></TD><TD></TD><TD style=\"text-align:right\">375</TD>" +
-"<TD></TD><TD>DEGREES</TD><TD></TD><TD></TD><TD></TD><TD>(NAVGEM)</TD></TR>"  +
+      "<TR><TD>WIND DIRECTION (FROM)</TD><TD></TD><TD></TD><TD style=\"text-align:right\">375</TD>" +
+      "<TD></TD><TD>DEGREES</TD><TD></TD><TD></TD><TD></TD><TD>(NAVGEM)</TD></TR>"  +
 
-"<TR><TD>WAVE HEIGHT</TD><TD></TD><TD></TD><TD style=\"text-align:right\">4.6</TD>" +
-"<TD></TD><TD>FEET</TD><TD></TD><TD></TD><TD></TD><TD>(WW3-NWATL)</TD></TR>" +
+      "<TR><TD>WAVE HEIGHT</TD><TD></TD><TD></TD><TD style=\"text-align:right\">4.6</TD>" +
+      "<TD></TD><TD>FEET</TD><TD></TD><TD></TD><TD></TD><TD>(WW3-NWATL)</TD></TR>" +
 
-"<TR><TD>PRIMARY PERIOD</TD><TD></TD><TD></TD><TD style=\"text-align:right\">O6</TD>" +
-"<TD></TD><TD>SEC</TD><TD></TD><TD></TD><TD></TD><TD>(WW3-NWATL)</TD></TR>" +
+      "<TR><TD>PRIMARY PERIOD</TD><TD></TD><TD></TD><TD style=\"text-align:right\">O6</TD>" +
+      "<TD></TD><TD>SEC</TD><TD></TD><TD></TD><TD></TD><TD>(WW3-NWATL)</TD></TR>" +
 
-"<TR><TD>PRIMARY DIRECTION</TD><TD></TD><TD></TD><TD style=\"text-align:right\">036</TD>" +
-"<TD></TD> <TD>DEGREES</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
+      "<TR><TD>PRIMARY DIRECTION</TD><TD></TD><TD></TD><TD style=\"text-align:right\">036</TD>" +
+      "<TD></TD> <TD>DEGREES</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
 
-"<TR> <TD>SECONDARY PERIOD</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">08</TD>" +
-"<TD></TD> <TD>SEC</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
+      "<TR> <TD>SECONDARY PERIOD</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">08</TD>" +
+      "<TD></TD> <TD>SEC</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
 
-"<TR> <TD>SECONDARY DIRECTION</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">013</TD>" +
-"<TD></TD> <TD>DEGREES</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
+      "<TR> <TD>SECONDARY DIRECTION</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">013</TD>" +
+      "<TD></TD> <TD>DEGREES</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
 
-"<TR> <TD>WHITE CAPS</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">000</TD>" +
-"<TD></TD> <TD>PROB</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
+      "<TR> <TD>WHITE CAPS</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">000</TD>" +
+      "<TD></TD> <TD>PROB</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(WW3-NWATL)</TD> </TR>" +
 
-"<TR> <TD>CLOUD COVER</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">6</TD>" +
-"<TD></TD> <TD>TENTHS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(NAVGEM)</TD> </TR>" +
+      "<TR> <TD>CLOUD COVER</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">6</TD>" +
+      "<TD></TD> <TD>TENTHS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(NAVGEM)</TD> </TR>" +
 
-"<TR> <TD>AIR TEMPERATURE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">11</TD>" +
-"<TD></TD> <TD>C</TD> <TD>( 052 F)</TD> <TD></TD> <TD></TD> <TD>(NAVGEM)</TD> </TR>" +
+      "<TR> <TD>AIR TEMPERATURE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">11</TD>" +
+      "<TD></TD> <TD>C</TD> <TD>( 052 F)</TD> <TD></TD> <TD></TD> <TD>(NAVGEM)</TD> </TR>" +
 
-"<TR> <TD>SEA TEMPERATURE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">25</TD>" +
-"<TD></TD> <TD>C</TD> <TD>( 077 F)</TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
+      "<TR> <TD>SEA TEMPERATURE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">25</TD>" +
+      "<TD></TD> <TD>C</TD> <TD>( 077 F)</TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
 
-"<TR> <TD>CURRENT SPEED</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1.5</TD>" +
-"<TD></TD> <TD>KNOTS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
+      "<TR> <TD>CURRENT SPEED</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1.5</TD>" +
+      "<TD></TD> <TD>KNOTS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
 
-"<TR> <TD>CURRENT DIRECTION (TO)</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">032</TD>" +
-"<TD></TD> <TD>DEGREES</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
+      "<TR> <TD>CURRENT DIRECTION (TO)</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">032</TD>" +
+      "<TD></TD> <TD>DEGREES</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
 
-"<TR> <TD>BEGIN TWILIGHT (NAUT.)</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1041</TD>" +
-"<TD></TD> <TD>ZULU</TD> <TD style=\"text-align:right\">0.0151</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD></TD> </TR>" +
+      "<TR> <TD>BEGIN TWILIGHT (NAUT.)</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1041</TD>" +
+      "<TD></TD> <TD>ZULU</TD> <TD style=\"text-align:right\">0.0151</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD></TD> </TR>" +
 
-"<TR> <TD>SUNRISE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1140</TD>" +
-"<TD></TD> <TD>ZULU</TD> <TD style=\"text-align:right\">438.9607</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD> </TD> </TR>" +
+      "<TR> <TD>SUNRISE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1140</TD>" +
+      "<TD></TD> <TD>ZULU</TD> <TD style=\"text-align:right\">438.9607</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD> </TD> </TR>" +
 
-"<TR> <TD>SUN TRANSIT</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1642</TD>" +
-"<TD></TD> <TD>ZULU</TD> <TD style=\"text-align:right\">54489.9375</TD> <TD></TD> <TD>LUX</TD><TD style=\"text-align:right\">33.75</TD><TD></TD></TR>" +
+      "<TR> <TD>SUN TRANSIT</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1642</TD>" +
+      "<TD></TD> <TD>ZULU</TD> <TD style=\"text-align:right\">54489.9375</TD> <TD></TD> <TD>LUX</TD><TD style=\"text-align:right\">33.75</TD><TD></TD></TR>" +
 
-"<TR> <TD>SUNSET</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">2144</TD> <TD></TD>" +
-"<TD>ZULU</TD> <TD style=\"text-align:right\">426.0207</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD></TD> </TR>" +
+      "<TR> <TD>SUNSET</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">2144</TD> <TD></TD>" +
+      "<TD>ZULU</TD> <TD style=\"text-align:right\">426.0207</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD></TD> </TR>" +
 
-"<TR> <TD>END TWILIGHT (NAUT.)</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">2242</TD> <TD></TD>" +
-"<TD>ZULU</TD> <TD style=\"text-align:right\">0.0293</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD></TD> </TR>" +
+      "<TR> <TD>END TWILIGHT (NAUT.)</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">2242</TD> <TD></TD>" +
+      "<TD>ZULU</TD> <TD style=\"text-align:right\">0.0293</TD> <TD></TD> <TD>LUX</TD> <TD></TD> <TD></TD> </TR>" +
 
-"<TR> <TD>MOON TRANSIT</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">0402</TD> <TD></TD>" +
-"<TD>ZULU</TD> <TD style=\"text-align:right\">0.2092</TD> <TD></TD> <TD>LUX</TD> <TD style=\"text-align:right\">99\\</TD> <TD style=\"text-align:right\">68.45</TD></TR>" +
+      "<TR> <TD>MOON TRANSIT</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">0402</TD> <TD></TD>" +
+      "<TD>ZULU</TD> <TD style=\"text-align:right\">0.2092</TD> <TD></TD> <TD>LUX</TD> <TD style=\"text-align:right\">99\\</TD> <TD style=\"text-align:right\">68.45</TD></TR>" +
 
 
-"<TR> <TD>MOONSET</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1102</TD> <TD></TD> <TD>ZULU</TD>" +
-"<TD style=\"text-align:right\">0.3532</TD> <TD></TD> <TD>LUX</TD> <TD style=\"text-align:right\">100\\</TD> <TD></TD> </TR>" +
+      "<TR> <TD>MOONSET</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">1102</TD> <TD></TD> <TD>ZULU</TD>" +
+      "<TD style=\"text-align:right\">0.3532</TD> <TD></TD> <TD>LUX</TD> <TD style=\"text-align:right\">100\\</TD> <TD></TD> </TR>" +
 
-"<TR> <TD>MOONRISE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">2157</TD> <TD></TD> <TD>ZULU</TD>" +
-"<TD style=\"text-align:right\">59.4582</TD> <TD></TD> <TD>LUX</TD> <TD style=\"text-align:right\">100\\</TD> <TD></TD> </TR>" +
+      "<TR> <TD>MOONRISE</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">2157</TD> <TD></TD> <TD>ZULU</TD>" +
+      "<TD style=\"text-align:right\">59.4582</TD> <TD></TD> <TD>LUX</TD> <TD style=\"text-align:right\">100\\</TD> <TD></TD> </TR>" +
 
-"<TR> <TD>WIND CHILL FACTOR</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">011</TD> <TD></TD>" +
-"<TD>C</TD> <TD>( 052 F)</TD> <TD></TD> <TD></TD> <TD>(NAVGEM)</TD> </TR>" +
+      "<TR> <TD>WIND CHILL FACTOR</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">011</TD> <TD></TD>" +
+      "<TD>C</TD> <TD>( 052 F)</TD> <TD></TD> <TD></TD> <TD>(NAVGEM)</TD> </TR>" +
 
-"<TR> <TD>SURVIVAL TIME WITH SUIT SPEED</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">25</TD> <TD></TD>" +
-"<TD>HOURS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
+      "<TR> <TD>SURVIVAL TIME WITH SUIT SPEED</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">25</TD> <TD></TD>" +
+      "<TD>HOURS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR>" +
 
-"<TR> <TD>SURVIVAL TIME WITHOUT SUIT</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">13</TD> <TD></TD>" +
-"<TD>HOURS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR> </TABLE>";
+      "<TR> <TD>SURVIVAL TIME WITHOUT SUIT</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">13</TD> <TD></TD>" +
+      "<TD>HOURS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR> </TABLE>";
 
       //Function Start
       function init(){

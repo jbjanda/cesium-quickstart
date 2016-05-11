@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html  lang="en">
+  <head>
   <!-- Use correct character set. -->
   <meta charset="utf-8">
   <!-- Tell IE to use the latest, best version. -->
@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <title>Object Float Demo</title>
   <script src="../Build/Cesium/Cesium.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <style>
       @import url(../Build/Cesium/Widgets/widgets.css);
       html, body, #cesiumContainer {
@@ -26,9 +27,16 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body ng-app="">
 
 	<div class="container">
+    <div >
+
+<p>Input something in the input box:</p>
+<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
+<h1>Hello {{name}}</h1>
+
+</div>
 
 			<div style="font-family:Dotum,Arial,sans-serif">
 				<h1>Clear Science Inc.</h1>
@@ -49,110 +57,174 @@
         <div id="cesiumContainer"></div>
       </div>
 
+<form name="form" novalidate ng-controller="WebsarController">
+
+          <div class="form-group" ng-class="{ 'has-error': form.uObject.$dirty || form.uObject.$invalid}">
+            <label>Object:</label>
+            <div>
+              <button type="button" class="btn btn-default btn-sm" ng-repeat="object in objects" ng-click="toggle(object)" >
+                <span class="glyphicon glyphicon-{{object.glyphicon}}"></span>&nbsp;{{object.category}}
+              </button>
+              <div ng-repeat="object in objects" uib-collapse="object.isCollasped" class="well" ng-show="!object.isCollapsed">
+                <blockquote class="bg-info">{{object.category}}</blockquote>
+                <div ng-repeat="items in object.values">
+                  <input type="radio" ng-model="user.objectID" value="{{items.id+ ' - ' + items.name}}" required="" ng-change="toggle2(items)" />&nbsp;{{items.name}}
+                  <div class="well" ng-show="!items.isHidden">
+		    <div ng-repeat="value in items.sub" ng-show="!items.isHidden">
+		      <input type="radio" ng-model="user.objectID" value="{{value.id + ' - ' + value.name}}" />&nbsp;{{value.name}}
+		  </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label>Object Selected:</label> {{user.objectID}}
+              </div>
+            </div>
+          </div>
+          <fieldset>
+            <legend>Start of Drift</legend>
+            <div class="row">
+              <div class="col-md-8 form-group" ng-class="{ 'has-error': form.uDate.$touched && form.uDate.$invalid}">
+                <label>Start Date:</label>
+                <p class="input-group"><input class="form-control" type="date" uib-datepicker-popup ng-model="user.date" is-open="status.opened" name="uDate" required="" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+                <div class="help-block" ng-messages="form.uDate.$error" ng-show="form.uDate.$touched">
+                  <p ng-message="required">Start date is required.</p>
+		  <p ng-message="date">Invalid date</p>
+                </div>
+              </div>
+
+                <div class="col-md-4 form-group" ng-class="{ 'has-error': form.uTime.$touched && form.uTime.$invalid}">
+                  <label>Start Time:</label>
+                  <input class="form-control" type="number" ng-model="user.time" ng-pattern="patterns.militaryTime" name="uTime" min="0000" max="2359" required="" />
+                  <div class="help-block" ng-messages="form.uTime.$error" ng-show="form.uTime.$touched">
+                    <p ng-message="required">Start time is required.</p>
+                    <p ng-message="min">Can't be less than 0000.</p>
+                    <p ng-message="max">Can't be greater than 2359.</p>
+                    <p ng-message="pattern">Must be 4 digit military time</p>
+                  </div>
+                </div>
+
+                <div class="col-md-8 form-group" >
+                  <label>Prediction Length: (-120 to 120 Hours)</label>
+                  <input type="range" class="form-control" ng-model="user.times" name="uTimes" min="-120" max="120" step="1" required="" />
+                </div>
+                <div class="col-md-4 form-group" ng-class="{ 'has-error': form.uTimes.$touched && form.uTimes.$invalid}">
+                <label>Hours</label>
+                 <input type="number" class="form-control" ng-model="user.times" name="uTimes" min="-120" max="120" step="1" required="" />
+                 <div class="help-block" ng-messages="form.uTimes.$error" ng-show="form.uTimes.$touched">
+                    <p ng-message="required">Field is required.</p>
+                    <p ng-message="min">Can't be less than -120 hours.</p>
+                    <p ng-message="max">Can't be greater than 120 hours.</p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+            <legend>Last Known Position</legend>
+              <div class="row">
+
+          		<div class="col-md-6 form-group" ng-class="{ 'has-error': form.uLong.$touched && form.uLong.$invalid}">
+          		  <label>Longitude:</label>
+          		  <input class="form-control" type="number" min="-180" max="180" step="0.0001" ng-model="user.latlong.lon" name="uLong" required="" />
+          		  <div class="help-block" ng-messages="form.uLong.$error" ng-show="form.uLong.$touched">
+          		    <p ng-message="required">Field is required.</p>
+          		    <p ng-message="min">Can't be less than -180</p>
+          		    <p ng-message="max">Can't be greater than 180</p>
+          		  </div>
+          		</div>
+
+                <div class ="col-md-6 form-group" ng-class="{ 'has-error': form.uLat.$touched && form.uLat.$invalid}">
+                  <label>Latitude:</label>
+                  <input class="form-control" type="number" min="-90" max="90" step="0.0001" ng-model="user.latlong.lat" name="uLat" required="" />
+                  <div class="help-block" ng-messages="form.uLat.$error" ng-show="form.uLat.$touched">
+                    <p ng-message="required">Field is required.</p>
+                    <p ng-message="min">Can't be less than -90.</p>
+                    <p ng-message="max">Can't be greater than 90.</p>
+                  </div>
+                </div>
+
+              <div class="col-md-8 form-group">
+                <label>Navigational Position Error: (0-200 Miles)</label>
+                <input class="form-control" type="range" ng-model="user.error" name="uError" min="0" max="200" step="0.1" required="" />
+              </div>
+              <div class="col-md-4 form-group" ng-class="{ 'has-error': form.uError.$touched && form.uError.$invalid}">
+                <label>Miles</label>
+                <input class="form-control" type="number" ng-model="user.error" name="uError" min="0" max="200" step="0.1" required="" />
+                <div class="help-block" ng-messages="form.uError.$error" ng-show="form.uError.$touched">
+                  <p ng-message="required">Field is required.</p>
+                  <p ng-message="min">Can't be less than zero.</p>
+                  <p ng-message="max">Can't be greater than 200 miles.</p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Desired Output Formats</legend>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="user.KML" name="userKML" />KML
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="user.CSV" name="userCSV" />CSV
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="user.TXT" name="userTXT" />TXT
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <br />
+          <div class="col-md-12 form-group" ng-controller="ModalDemoCtrl">
+
+            <div style="display:inline-block; position:relative;">
+              <button type="submit" class="btn btn-primary btn-lg" ng-disabled="!form.$valid" ng-click="open('lg')">Submit</button>
+              <div uib-tooltip="Missing required fields" ng-show="form.$invalid" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+            </div>
+
+      <script type="text/ng-template" id="myModalContent.html">
+    		<div class="modal-header">
+    		    <!--<h3 class="modal-title">Results</h3>-->
+            <em>Create {{imageCount}} images in {{imageTiming}} seconds</em><br/>
+            <em>The calculation of drift positions took {{driftCalcTiming}} seconds</em><br/>
+            <em>The download of data took {{downloadTime}} seconds</em>
+    		    <button ng-click="ok()" class='btn btn-danger btn-xs pull-right'>X</button>
+    		</div>
+    		<div class="modal-body">
+          <div>
+            <uib-carousel active="active" interval="0" no-wrap="false">
+                <uib-slide ng-repeat="item in items track by $index">
+                  <img ng-src="dynamic/{{item.image}}" style="margin:auto"/>
+
+                    <h3>SLAP Data</h3>
+                    <div class='row'>
+                        <pre class='col-md-10 col-md-offset-1' style='font-size: 12px; padding: 0;'>
+                          <div ng-bind-html='item.slap'></div>
+                        </pre>
+                    </div>
+                </uib-slide>
+            </uib-carousel>
+          </div>
+    		</div>
+    		<div class="modal-footer">
+
+    		</div>
+      </script>
+
+
+        </div>
+
+        </form>
 
     <script src="demo.js"></script>
-<!--
-      <script>
-        var viewer= new Cesium.Viewer('cesiumContainer');
-
-        document.getElementById("startDemo").addEventListener("click", startViewer);
-
-        function startViewer(){
-       var czml = [
-    {
-      "id" : "document",
-      "name" : "CZML Point",
-      "version" : "1.0"
-    },
-    {
-      "id" : "point 1",
-      "name": "point 1",
-      "position" : {
-        "interval":"2016-04-20T00:00:00Z/9999-12-31T24:00:00Z",
-        "cartographicDegrees" : [-79.6509,	30.3729, 0]
-      },
-      "point": {
-        "color": {
-          "rgba": [255,0, 0, 255]
-        },
-        "outlineColor": {
-          "rgba": [255,0, 200, 255]
-        },
-        "pixelSize": {
-          "number": 10
-        }
-      }
-    },
-      {
-      "id" : "point 2",
-      "name": "point 2",
-      "position" : {
-        "interval":"2016-04-20T01:00:00Z/2016-04-20T02:00:00Z",
-        "cartographicDegrees" : [-79.60867185,	30.4871365, 0]
-      },
-      "point": {
-        "color": {
-          "rgba": [0,0, 255, 255]
-        },
-        "outlineColor": {
-          "rgba": [0,0, 255, 150]
-        },
-        "pixelSize": {
-          "number": 10
-        }
-      }
-    },
-      {
-      "id" : "point 2a",
-      "name": "point",
-      "position" : {
-        "interval":"2016-04-20T02:00:00Z/9999-12-31T24:00:00Z",
-        "cartographicDegrees" : [-79.60867185,	30.4871365, 0]
-      },
-      "point": {
-        "color": {
-          "rgba": [128,128,128,255]
-        },
-        "outlineColor": {
-          "rgba": [255,0, 200, 255]
-        },
-        "pixelSize": {
-          "number": 10
-        }
-      }
-    },
-      {
-      "id" : "point 3",
-      "name": "This is a test" + " How much info can we put into" +
-          " a point",
-      "position" : {
-        "interval":"2016-04-20T02:00:00Z/9999-12-31T24:00:00Z",
-        "cartographicDegrees" : [-79.55759526,	30.59606461, 0]
-      },
-      "point": {
-        "color": {
-          "rgba": [0,0, 255, 255]
-        },
-        "outlineColor": {
-          "rgba": [0,0, 255, 150]
-        },
-        "pixelSize": {
-          "number": 10
-        }
-      }
-    }
-
-  ];
 
 
-
-          var dataSource = Cesium.CzmlDataSource.load(czml);
-          viewer.dataSources.add(dataSource);
-          viewer.zoomTo(dataSource);
-          document.getElementById("cesiumContainer")=viewer;
-        }
-      </script>
--->
     </div>
   </body>
 </html>
