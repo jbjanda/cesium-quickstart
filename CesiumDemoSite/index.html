@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="en">
+<html lang="en">
   <head>
   <!-- Use correct character set. -->
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <title>Object Float Demo</title>
   <script src="../Build/Cesium/Cesium.js"></script>
- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
   <style>
       @import url(../Build/Cesium/Widgets/widgets.css);
       html, body, #cesiumContainer {
@@ -20,23 +20,34 @@
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-<!-- jQuery library -->
+    <!-- Angular library ***Note this is duplicating downloaded code in js folder!*** -->
+    <!-- Angular 1.4.8 and UI Boostrap 0.14.3 -->
+    <!-- <script src="js/angular.min.js"></script> -->
+    <script src="js/angular.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap-tpls.min.js"></script>
+    <!-- Angular UI Bootstrap tpls 1.1.0-->
+    <!--Main App-->
+    <script src="js/form.js"></script>
+    <script src="js/controllers/websar.controller.js"></script>
+    <script src="js/controllers/modal.controller.js"></script>
+    <script src="js/controllers/modalInstance.controller.js"></script>
+    <script src="js/services/object.service.js"></script>
+     <script src="js/directives/input.directive.js"></script>
+    <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<body ng-app="">
+<body>
 
 	<div class="container">
-    <div >
 
-<p>Input something in the input box:</p>
-<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-<h1>Hello {{name}}</h1>
-
-</div>
 
 			<div style="font-family:Dotum,Arial,sans-serif">
 				<h1>Clear Science Inc.</h1>
@@ -57,7 +68,7 @@
         <div id="cesiumContainer"></div>
       </div>
 
-<form name="form" novalidate ng-controller="WebsarController">
+<form name="form" novalidate ng-app="webForm" ng-controller="WebsarController" style='margin-top: 50px;'>
 
           <div class="form-group" ng-class="{ 'has-error': form.uObject.$dirty || form.uObject.$invalid}">
             <label>Object:</label>
@@ -223,7 +234,7 @@
         </form>
 
     <script src="demo.js"></script>
-    <script> (function(){
+<!--     <script> (function(){
     angular.module('webForm',
               [
                 'ngMessages',
@@ -237,9 +248,9 @@
   angular.module('webForm')
         .controller('WebsarController', WebsarController);
 
-  WebsarController.$inject = ['$scope', '$http','ObjectService', 'MapService']
+  WebsarController.$inject = ['$scope', '$http','ObjectService']
 
-  function WebsarController($scope, $http, ObjectService, MapService) {
+  function WebsarController($scope, $http, ObjectService) {
     //Object structure to store all categories of objects with the associated flags, icons, and values.
     //Values are coded with id numbers and name/description
     $scope.objects = ObjectService.objects;
@@ -315,7 +326,7 @@
 
   };
 })()
-    </script>
+    </script> -->
 
     </div>
   </body>
