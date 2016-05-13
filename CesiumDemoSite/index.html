@@ -48,7 +48,7 @@
 
 	<div class="container">
 
-
+<div ng-app="webForm" >
 			<div style="font-family:Dotum,Arial,sans-serif">
 				<h1>Clear Science Inc.</h1>
         <h2>Object Float Demo</h2>
@@ -68,7 +68,7 @@
         <div id="cesiumContainer"></div>
       </div>
 
-<form name="form" novalidate ng-app="webForm" ng-controller="WebsarController" style='margin-top: 50px;'>
+<form name="form" novalidate ng-controller="WebsarController" style='margin-top: 50px;'>
 
           <div class="form-group" ng-class="{ 'has-error': form.uObject.$dirty || form.uObject.$invalid}">
             <label>Object:</label>
@@ -327,7 +327,7 @@
   };
 })()
     </script> -->
-
+    </div>
     </div>
   </body>
 </html>

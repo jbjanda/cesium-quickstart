@@ -2,7 +2,7 @@
   angular.module('webForm')
         .controller('WebsarController', WebsarController);
 
-  WebsarController.$inject = ['$scope', '$http','ObjectService']
+  WebsarController.$inject = ['$scope', '$http','ObjectService', 'ViewerService']
 
   function WebsarController($scope, $http, ObjectService) {
     //Object structure to store all categories of objects with the associated flags, icons, and values.
@@ -72,8 +72,8 @@
          }
        });
 
-    
-       
+
+
    });
  };
 
