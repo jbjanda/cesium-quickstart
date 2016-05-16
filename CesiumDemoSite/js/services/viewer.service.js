@@ -4,7 +4,7 @@ angular.module('webForm')
 ObjectService.$inject = ['$rootscope'];
 
 function ViewerService($rootscope){
-
+var viewer=
 
 
 }
