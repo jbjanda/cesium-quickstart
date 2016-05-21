@@ -44,7 +44,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body ng-app="webForm">
 
 	<div class="container">
 
@@ -63,12 +63,13 @@
     <div id="lat"></div>
     <div id="lon"></div>
 
-      <div>
+      <div ng-controller="cesiumCtrl as cesiumCtrl">
         <button type="button" id="startDemo" class="btn btn-primary">Start Demo</button>
-        <div id="cesiumContainer"></div>
+         <div cesium-directive="" id="cesium1" class="cesiumContainer"></div>
+      <div id="cesiumContainer"></div>
       </div>
 
-<form name="form" novalidate ng-app="webForm" ng-controller="WebsarController" style='margin-top: 50px;'>
+<form name="form" novalidate ng-controller="WebsarController" style='margin-top: 50px;'>
 
           <div class="form-group" ng-class="{ 'has-error': form.uObject.$dirty || form.uObject.$invalid}">
             <label>Object:</label>
@@ -232,8 +233,9 @@
         </div>
 
         </form>
-
+ <script src="js/app.js"></script>
     <script src="demo.js"></script>
+
 <!--     <script> (function(){
     angular.module('webForm',
               [
