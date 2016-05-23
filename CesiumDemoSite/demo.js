@@ -16,7 +16,30 @@ $(document).ready(function(){
             show : false
         }
     });
+ // Event handler code for displaying the cartographic degrees and selecting them.
+    var cartesian;
+    var cartographic;
+    var longitudeString;
+    var latitudeString;
+    var demoStarted=false; // checks if the demo is started
+    // Mouse over the globe to see the cartographic position
+    handlerMove = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+    handlerMove.setInputAction(function(movement) {
+        cartesian = viewer.camera.pickEllipsoid(movement.endPosition, scene.globe.ellipsoid);
+        if (cartesian && !demoStarted) {
+            cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+            longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
+            latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
 
+            entity.position = cartesian;
+            entity.label.show = true;
+            entity.label.text = '(' + longitudeString + ', ' + latitudeString + ')';
+
+        } else {
+            entity.label.show = false;
+        }
+
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
 -
 
    // click globe to select values
