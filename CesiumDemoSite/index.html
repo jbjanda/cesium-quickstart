@@ -24,9 +24,12 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Angular library -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 </head>
 
-<body>
+<body ng-app="cesiumDemo">
 
 	<div class="container">
 
@@ -42,13 +45,22 @@
         functionality will be added to this demonstration.
 			</div>
 
+    <div ng-controller="CesiumController as CesiumController">
+      <div cesium-directive="" id="cesium1" class="cesiumContainer"></div>
+    </div>
+
       <div>
         <button type="button" id="startDemo" class="btn btn-primary">Start Demo</button>
         <div id="cesiumContainer"></div>
       </div>
 
 
-    <script src="demo.js"></script>
+    <script src="js/demo.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/CesiumController.js"></script>
+    <script src="js/directives/cesiumDirective.js"></script>
+
+
 <!--
       <script>
         var viewer= new Cesium.Viewer('cesiumContainer');
