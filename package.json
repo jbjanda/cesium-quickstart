@@ -54,7 +54,7 @@
     "yargs": "3.32.0"
   },
   "scripts": {
-    "start": "node server.js --public true",
+    "start": "node server.js --public",
     "build": "gulp build",
     "build-watch": "gulp build-watch",
     "buildApps": "gulp buildApps",
