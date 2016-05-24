@@ -2,19 +2,19 @@
   angular.module('webForm')
         .controller('WebsarController', WebsarController);
 
-  WebsarController.$inject = ['$scope', '$http','ObjectService']
+  WebsarController.$inject = ['$scope', '$http','ObjectService', 'cesiumService']
 
-  function WebsarController($scope, $http, ObjectService) {
+  function WebsarController($scope, $http, ObjectService, cesiumService) {
     //Object structure to store all categories of objects with the associated flags, icons, and values.
     //Values are coded with id numbers and name/description
     $scope.objects = ObjectService.objects;
 //   $scope.map = MapService.getMap();
 //     $scope.user = MapService.user;
-      $scope.user = {};
-    //Watches for changes in form values for longitudue and re-centers map
-//     $scope.$watch('user.latlong', function(oldValue, newValue) {
+      $scope.user = cesiumService.user;
+      //Watches for changes in form values for longitudue and re-centers map
+//       $scope.$watch('user.latlong', function(oldValue, newValue) {
 //         console.log($scope.user)
-//         $scope.map.getView().setCenter(ol.proj.fromLonLat([$scope.user.latlong.lon, $scope.user.latlong.lat]));
+//         $scope.$digest();
 //       });
 
     // //Watches for changes in form values for latitude and re-centers map
@@ -72,8 +72,8 @@
          }
        });
 
-    
-       
+
+
    });
  };
 
