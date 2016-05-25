@@ -63,12 +63,13 @@
     <div id="lat"></div>
     <div id="lon"></div>
 
-      <div ng-controller="cesiumCtrl as cesiumCtrl">
-        <button type="button" id="startDemo" class="btn btn-primary">Start Demo</button>
+
+<!--         <button type="button" id="startDemo" class="btn btn-primary" ng-click="init()">Start Demo</button>
+        <div uib-tooltip="Missing required fields" ng-show="form.$invalid" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div> -->
          <div cesium-directive id="cesium1" class="cesiumContainer"></div>
 
 <!--       <div id="cesiumContainer"></div> -->
-      </div>
+
 
 <form name="form" novalidate ng-controller="WebsarController" style='margin-top: 50px;'>
 
@@ -194,11 +195,13 @@
             </div>
           </fieldset>
           <br />
-          <div class="col-md-12 form-group" ng-controller="cesiumCtrl as cesiumCtrl">
+          <div class="col-md-12 form-group">
 
             <div style="display:inline-block; position:relative;">
-              <button type="submit" class="btn btn-primary btn-lg" ng-disabled="!form.$valid" ng-click="init">Submit</button>
-              <div uib-tooltip="Missing required fields" ng-show="form.$invalid" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+                <button type="button" id="startDemo" class="btn btn-primary" ng-click="init()" ng-disabled="!form.$valid">Start Demo</button>
+        <div uib-tooltip="Missing required fields" ng-show="form.$invalid" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+<!--               <button type="submit" class="btn btn-primary btn-lg" ng-disabled="!form.$valid">Submit</button>
+              <div uib-tooltip="Missing required fields" ng-show="form.$invalid" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div> -->
             </div>
 
       <script type="text/ng-template" id="myModalContent.html">
@@ -234,6 +237,8 @@
         </div>
 
         </form>
+
+
  <script src="js/app.js"></script>
    <!-- <script src="demo.js"></script>
 

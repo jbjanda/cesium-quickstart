@@ -68,7 +68,13 @@ $(document).ready(function(){
 //<------------------------end of events code ------------------------->
 
 
-  // This is the formatted websar data. All data is hardcoded in at this time. Used in description for CZML
+
+
+      //Function Start
+      function init(){
+        console.log('Here')
+       // viewer = new Cesium.Viewer('cesiumContainer');
+          // This is the formatted websar data. All data is hardcoded in at this time. Used in description for CZML
       var websar = "<p>CONDITIONS AT MAP CENTER 35-34.0N 073-46.0N VALID ON 2412900Z NOV2015</P>" +
       "<TABLE style=\"font-size:7pt\">" +
 
@@ -144,12 +150,7 @@ $(document).ready(function(){
 
       "<TR> <TD>SURVIVAL TIME WITHOUT SUIT</TD> <TD></TD> <TD></TD> <TD style=\"text-align:right\">13</TD> <TD></TD>" +
       "<TD>HOURS</TD> <TD></TD> <TD></TD> <TD></TD> <TD>(HYCOM_GLOBAL)</TD> </TR> </TABLE>";
-
-      //Function Start
-      function init(){
-        console.log('Here')
-       // viewer = new Cesium.Viewer('cesiumContainer');
-              var czml = [
+        var czml = [
                 {
                   "id" : "document",
                   "name" : "CZML Point",
