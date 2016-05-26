@@ -10,13 +10,6 @@ angular.module('ngCesium', [])
       bindToController: true,
       controller: function($scope, $element){
 
-
-        $scope.init = function(){
-
-
-          console.log("submit")
-
-        };
       },
       // define the "link" function
       link: function(scope, element, attr, ctrl){
@@ -48,12 +41,27 @@ angular.module('ngCesium', [])
         var cam=ctrl.cesiumViewer.camera;
        // console.log(cam);
         var demoStarted=false; // checks if the demo is started
+
+        // Toggles the form open and closed
+
+         scope.toggleForm = function() {
+           element.toggleClass('withForm');
+           if(scope.showForm) {
+               scope.showForm = false;
+
+
+            } else {
+               scope.showForm = true;
+            }
+          }
+
+
     // Mouse over the globe to see the cartographic position
     // This function is taken from the code examples in the Cesium Sandcastle under Picker
     handlerMove = new Cesium.ScreenSpaceEventHandler(scene.canvas);
     handlerMove.setInputAction(function(movement) {
         cartesian = cam.pickEllipsoid(movement.endPosition, scene.globe.ellipsoid);
-      console.log(cartesian);
+
         if (cartesian && !demoStarted) {
             cartographic = Cesium.Cartographic.fromCartesian(cartesian);
             longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
@@ -897,6 +905,8 @@ angular.module('ngCesium', [])
         var frame= new Cesium.HeadingPitchRange(0.05,-.30, 200500);
         demoStarted=true; // This removes the cartographic degree label from the viewer when the demo starts.
         ctrl.cesiumViewer.zoomTo(dataSource, frame);
+        element.toggleClass('withForm');
+        scope.showForm = false;
         };// end init function
             }// end link function
           };

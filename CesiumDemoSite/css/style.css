@@ -1,0 +1,16 @@
+.withForm{
+  width: 60%;
+  height: 60%;
+  float: right;
+}
+
+.header{
+  font-family:Dotum,Arial,sans-serif;
+}
+
+.button{
+  margin: 10px;
+/*   float: left; */
+}
+
+
